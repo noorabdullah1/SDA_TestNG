@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class task01 extends TestBase {
+public class Task01 extends TestBase {
 
     @Test
     public void positiveLoginTest() {
@@ -46,7 +46,7 @@ public class task01 extends TestBase {
     }
 
     @Test
-    public void positiveLoginTestWithHardAssertion() {
+    public void positiveLoginTestHardAss() {
         driver.get("https://practicetestautomation.com/practice-test-login/");
 
         // Step 2: Type the username and password
