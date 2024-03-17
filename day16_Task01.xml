@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Tests">
+    <test name="Test1 ">
+        <parameter name="search1" value="Java"> </parameter>
+        <parameter name="search2" value="Selenium"> </parameter>
+        <classes>
+            <class name="sda.homeworks.day16.Task01"> </class>
+        </classes>
+    </test>
+</suite>

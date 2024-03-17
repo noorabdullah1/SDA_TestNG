@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="Test1">
+        <parameter name="username1" value="student"></parameter>
+        <parameter name="password1" value="Password123"></parameter>
+
+        <classes>
+            <class name="sda.homeworks.day16.Task02"></class>
+        </classes>
+    </test>
+
+    <!-- failed -->
+    <test name="Test2">
+        <parameter name="username1" value="student1"></parameter>
+        <parameter name="password1" value="Password1231"></parameter>
+
+        <classes>
+            <class name="sda.homeworks.day16.Task02"></class>
+        </classes>
+    </test>
+
+
+</suite>
