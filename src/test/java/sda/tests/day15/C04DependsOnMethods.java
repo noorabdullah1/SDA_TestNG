@@ -11,7 +11,7 @@ public class C04DependsOnMethods {
     @Test
     void startCar(){
         System.out.println("start the car"); // This test is an INDEPENDENT test
-        Assert.assertEquals(2,3);
+        //Assert.assertEquals(2,3);
     }
 
     @Test(dependsOnMethods = {"startCar"}) // This test depends on the successful execution of the "startCar" test

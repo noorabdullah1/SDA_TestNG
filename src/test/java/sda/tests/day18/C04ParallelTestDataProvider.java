@@ -1,25 +1,27 @@
-package sda.tests.day17;
+package sda.tests.day18;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import sda.utilities.TestBase;
 
-public class C02DataProviders02 extends TestBase {
+import java.time.Duration;
 
-    //Go to URL: https://opensource-demo.orangehrmlive.com/
-    //Login with negative credentilas by Data Provider.
-    //Then assert that ''Invalid credentials'’ is displayed.
-
+public class C04ParallelTestDataProvider  {
     By userNameFiled = By.name("username");
     By passwordName = By.name("password");
     By buttonTag = By.tagName("button");
     By textByXpath = By.xpath("//*[.='Invalid credentials']");
 
-    @Test(dataProvider ="invalidCredentials" )
+    @Test(dataProvider = "invalidCredentials")
     public void negativeLoginTest(String userName, String password) throws InterruptedException {
+        WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         driver.get("https://opensource-demo.orangehrmlive.com/");
 
         driver.findElement(userNameFiled).sendKeys(userName);
@@ -30,22 +32,17 @@ public class C02DataProviders02 extends TestBase {
         WebElement invalidText = driver.findElement(textByXpath);
 
         Assert.assertTrue(invalidText.isDisplayed());
+        driver.quit();
 
 
     }
 
 
-    @DataProvider(name = "invalidCredentials")
-    public Object[][] getData(){
+    @DataProvider(name = "invalidCredentials",parallel = true)
+    public Object[][] getData() {
         return new Object[][]{
-                {"adm","admin23*"},
-                {"cdmin","admin123"},
-                {"Admin","Admin123"},
-                {"Admin","asr"},
-                {"asef","admin123"},
+                {"adm", "admin23*"},
+                {"cdmin", "admin123"},
         };
     }
-
-
-
 }

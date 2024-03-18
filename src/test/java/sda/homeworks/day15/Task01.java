@@ -38,9 +38,9 @@ public class Task01 extends TestBase {
         softAssert.assertTrue(actualText.contains(expectedText) || actualText.contains("successfully logged in"),
                 "New page does not contain the expected text.");
 
-        // Step 6: Verify the presence of the logout button
-        WebElement logoutButton = driver.findElement(By.linkText("Log out"));
-        softAssert.assertTrue(logoutButton.isDisplayed(), "Logout button is not displayed on the new page.");
+//        // Step 6: Verify the presence of the logout button
+        WebElement logoutButton = driver.findElement(By.xpath("//*[@id=\"loop-container\"]/div/article/div[2]/div"));
+        softAssert.assertTrue(logoutButton.isDisplayed(), "Logout button is not displayed");
 
         softAssert.assertAll();
     }

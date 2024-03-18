@@ -35,6 +35,8 @@ public class Task02 extends TestBase {
             Assert.assertFalse(driver.findElements(By.xpath("//*[contains(text(),'" + asd + "')]")).isEmpty());
 
             driver.findElement(By.xpath("//a[contains(text(),'archive')]")).click();
+
+            // Assertion for length of list after archiving todos
             Assert.assertEquals(driver.findElements(By.xpath("//span[@class=\"done-true\"]")).size(), 0);
 
 

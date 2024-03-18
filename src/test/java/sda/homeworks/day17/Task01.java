@@ -13,29 +13,38 @@ public class Task01 extends TestBase {
 //    Password: 123456789
 //    Using the Search function do it with Data Provider for Mac, iPad and Samsung
 
-        @Test(dataProvider = "searchQueries")
-        public void searchProduct(String searchQuery) {
-            //Open the site: http://opencart.abstracta.us/index.php?route=account/login
-            driver.get("http://opencart.abstracta.us/index.php?route=account/login");
+    By emailId = By.id("input-email");
+    By passwordId = By.id("input-password");
+    By buttonCssSelector1 = By.cssSelector("input[type='submit']");
+    By searchBarName = By.name("search");
+    By buttonCssSelector2 = By.cssSelector("button[type='button'][class='btn btn-default btn-lg']");
 
-            //Login with that credentials
-            //Email: clarusway@gmail.com , Password: 123456789
-            driver.findElement(By.id("input-email")).sendKeys("clarusway@gmail.com");
-            driver.findElement(By.id("input-password")).sendKeys("123456789");
-            driver.findElement(By.cssSelector("input[type='submit']")).click();
+    @Test(dataProvider = "searchQueries")
+    public void searchProduct(String searchQuery) {
+        //Open the site: http://opencart.abstracta.us/index.php?route=account/login
+        driver.get("http://opencart.abstracta.us/index.php?route=account/login");
 
-            // Search for the product
-            driver.findElement(By.name("search")).sendKeys(searchQuery);
-            driver.findElement(By.cssSelector("button[type='button'][class='btn btn-default btn-lg']")).click();
+        // Login with that credentials
+        driver.findElement(emailId).sendKeys("clarusway@gmail.com");
+        driver.findElement(passwordId).sendKeys("123456789");
+        driver.findElement(buttonCssSelector1).click();
 
-        }
-        @DataProvider(name = "searchQueries")
-        public Object[][] searchQueriesProvider() {
-            return new Object[][]{
-                    {"Mac"},
-                    {"iPad"},
-                    {"Samsung"}
-            };
-        }
+        // Search for the product
+        driver.findElement(searchBarName).sendKeys(searchQuery);
+        driver.findElement(buttonCssSelector2).click();
+
+        // Add verification steps as needed
+    }
+
+    @DataProvider(name = "searchQueries")
+    public Object[][] searchQueriesProvider() {
+        return new Object[][]{
+                {"Mac"},
+                {"iPad"},
+                {"Samsung"}
+        };
+    }
+
+
     }
 
