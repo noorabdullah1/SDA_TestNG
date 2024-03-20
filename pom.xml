@@ -12,6 +12,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <aspectj.version>1.9.20.1</aspectj.version>
     </properties>
 
     <dependencies>
@@ -38,6 +39,26 @@
             <version>1.0.2</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.5</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.25.0</version>
+        </dependency>
+
     </dependencies>
 
 
@@ -53,7 +74,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-                    <parallel>methods</parallel>
+                    <parallel>none</parallel>
                     <threadCount>10</threadCount>
                     <redirectTestOutputToFile>true</redirectTestOutputToFile>
                     <!--
@@ -62,11 +83,12 @@
                     </suiteXmlFiles>
                     -->
                     <includes>
-                        <include>sda/tests/day18/C02ParallelTest02.java</include>
+                        <include>src/test/java/sda/tests/day19/C03AllureTest01.java</include>
                     </includes>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 
 </project>

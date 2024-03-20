@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="sda.utilities.Listeners"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true"
+          name="C02Listeners02.java">
+        <classes>
+            <class name="sda.tests.day20.C02Listeners02">
+
+            </class>
+        </classes>
+    </test>
+</suite>
